@@ -1,6 +1,6 @@
 // frontend/src/services/userService.ts
 import { transformUser, transformUsers } from "@/utils/transforms";
-import { User, CreateUserRequest, UpdateUserRequest } from "../types";
+import { CreateUserRequest, UpdateUserRequest } from "../types";
 import { apiClient } from "./api";
 
 // Interface for the raw API response (snake_case)
