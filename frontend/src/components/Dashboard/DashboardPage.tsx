@@ -26,9 +26,14 @@ const DashboardPage: React.FC = () => {
         navigate( '/users/new' )
     }
 
+    console.log(users, "users in dashboard");
+
     const totalUsers = users?.length
-    const totalIncome = users?.reduce( ( sum, user ) => sum + user.totalIncome, 0 )
-    const totalExpenses = users?.reduce( ( sum, user ) => sum + user.totalExpense, 0 )
+    const totalIncome = users?.reduce( ( sum, user ) => sum + (user.totalIncome), 0 )
+    console.log(totalIncome, "totalIncome");
+
+    const totalExpenses = users?.reduce( ( sum, user ) => sum + (user.totalExpense), 0 )
+    console.log(totalExpenses, "totalExpenses");
 
     if ( usersLoading && users?.length === 0 ) {
         return <Loading message="Loading dashboard..." />
@@ -66,7 +71,7 @@ const DashboardPage: React.FC = () => {
                 <Grid item xs={ 12 } sm={ 6 } md={ 3 }>
                     <Paper sx={ { p: 3, textAlign: 'center' } }>
                         <Typography variant="h6" color="text.secondary" gutterBottom>
-                            Total Income
+                            Total Income asdasdasd
                         </Typography>
                         <Typography variant="h3" color="success.main">
                             ${ totalIncome?.toFixed( 2 ) }
