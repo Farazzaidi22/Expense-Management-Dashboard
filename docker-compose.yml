@@ -1,0 +1,61 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:8000/api
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - expense-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=expense_management
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - APP_ENV=development
+    volumes:
+      - ./backend:/var/www/html
+    depends_on:
+      - postgres
+    networks:
+      - expense-network
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=expense_management
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/database/migrations:/docker-entrypoint-initdb.d/migrations
+      - ./backend/database/seeders:/docker-entrypoint-initdb.d/seeders
+    networks:
+      - expense-network
+
+volumes:
+  postgres_data:
+
+networks:
+  expense-network:
+    driver: bridge

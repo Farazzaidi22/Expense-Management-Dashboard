@@ -1,0 +1,30 @@
+{
+    "name": "expense-management/backend",
+    "description": "Expense Management Dashboard API",
+    "type": "project",
+    "require": {
+        "php": ">=8.2",
+        "ext-pdo": "*",
+        "ext-json": "*",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ExpenseManagement\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ExpenseManagement\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
