@@ -15,7 +15,7 @@ const UserList: React.FC<UserListProps> = ( { users, loading } ) => {
         return <Loading message="Loading users..." />
     }
 
-    if ( users.length === 0 ) {
+    if ( users?.length === 0 ) {
         return (
             <Box sx={ { textAlign: 'center', py: 4 } }>
                 <Typography variant="body1" color="text.secondary">
@@ -27,7 +27,7 @@ const UserList: React.FC<UserListProps> = ( { users, loading } ) => {
 
     return (
         <Box sx={ { display: 'flex', flexDirection: 'column', gap: 2 } }>
-            { users.map( ( user ) => (
+            { users?.map( ( user ) => (
                 <UserCard key={ user.id } user={ user } />
             ) ) }
         </Box>

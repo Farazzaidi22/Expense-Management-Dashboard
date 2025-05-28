@@ -26,11 +26,11 @@ const DashboardPage: React.FC = () => {
         navigate( '/users/new' )
     }
 
-    const totalUsers = users.length
-    const totalIncome = users.reduce( ( sum, user ) => sum + user.totalIncome, 0 )
-    const totalExpenses = users.reduce( ( sum, user ) => sum + user.totalExpense, 0 )
+    const totalUsers = users?.length
+    const totalIncome = users?.reduce( ( sum, user ) => sum + user.totalIncome, 0 )
+    const totalExpenses = users?.reduce( ( sum, user ) => sum + user.totalExpense, 0 )
 
-    if ( usersLoading && users.length === 0 ) {
+    if ( usersLoading && users?.length === 0 ) {
         return <Loading message="Loading dashboard..." />
     }
 
@@ -69,7 +69,7 @@ const DashboardPage: React.FC = () => {
                             Total Income
                         </Typography>
                         <Typography variant="h3" color="success.main">
-                            ${ totalIncome.toFixed( 2 ) }
+                            ${ totalIncome?.toFixed( 2 ) }
                         </Typography>
                     </Paper>
                 </Grid>
@@ -79,7 +79,7 @@ const DashboardPage: React.FC = () => {
                             Total Expenses
                         </Typography>
                         <Typography variant="h3" color="error.main">
-                            ${ totalExpenses.toFixed( 2 ) }
+                            ${ totalExpenses?.toFixed( 2 ) }
                         </Typography>
                     </Paper>
                 </Grid>
@@ -92,7 +92,7 @@ const DashboardPage: React.FC = () => {
                             variant="h3"
                             color={ totalIncome - totalExpenses >= 0 ? 'success.main' : 'error.main' }
                         >
-                            ${ ( totalIncome - totalExpenses ).toFixed( 2 ) }
+                            ${ ( totalIncome - totalExpenses )?.toFixed( 2 ) }
                         </Typography>
                     </Paper>
                 </Grid>
@@ -125,7 +125,7 @@ const DashboardPage: React.FC = () => {
                         </Typography>
                         { analyticsLoading ? (
                             <Loading message="Loading analytics..." size={ 30 } />
-                        ) : expensesByCategory.length > 0 ? (
+                        ) : expensesByCategory?.length > 0 ? (
                             <ExpenseChart data={ expensesByCategory } />
                         ) : (
                             <Typography variant="body2" color="text.secondary" textAlign="center" sx={ { py: 4 } }>
