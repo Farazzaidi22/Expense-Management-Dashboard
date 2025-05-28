@@ -37,7 +37,7 @@ A modern React application built with TypeScript, Redux, and Material UI for man
 
 ### Prerequisites
 
-- Node.js 18+ and npm
+- Node.js 18+ and pnpm
 - Backend API running on port 8000
 
 ### Installation
@@ -45,7 +45,7 @@ A modern React application built with TypeScript, Redux, and Material UI for man
 1. **Install dependencies**
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 2. **Environment setup**
@@ -58,7 +58,7 @@ A modern React application built with TypeScript, Redux, and Material UI for man
 3. **Start development server**
 
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
    The application will be available at `http://localhost:3000`
@@ -67,17 +67,17 @@ A modern React application built with TypeScript, Redux, and Material UI for man
 
 ```bash
 # Development
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run preview      # Preview production build
+pnpm run dev          # Start development server
+pnpm run build        # Build for production
+pnpm run preview      # Preview production build
 
 # Testing
-npm test             # Run tests
-npm run test:ui      # Run tests with UI
-npm run test:coverage # Run tests with coverage
+pnpm test             # Run tests
+pnpm run test:ui      # Run tests with UI
+pnpm run test:coverage # Run tests with coverage
 
 # Code Quality
-npm run lint         # Run ESLint
+pnpm run lint         # Run ESLint
 ```
 
 ## 🏗️ Project Structure
@@ -108,16 +108,16 @@ The project includes comprehensive unit tests using Vitest and React Testing Lib
 
 ```bash
 # Run all tests
-npm test
+pnpm test
 
 # Run tests in watch mode
-npm run test:watch
+pnpm run test:watch
 
 # Run tests with coverage
-npm run test:coverage
+pnpm run test:coverage
 
 # Run tests with UI
-npm run test:ui
+pnpm run test:ui
 ```
 
 ### Test Structure
@@ -192,13 +192,13 @@ Redux Toolkit is used for state management with three main slices:
 ### Development Build
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 ### Production Build
 
 ```bash
-npm run build
+pnpm run build
 # Output in dist/ directory
 ```
 

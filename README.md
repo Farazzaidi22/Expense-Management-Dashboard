@@ -106,7 +106,7 @@ A full-stack expense management application with user registration, transaction 
 
    ```bash
    # Frontend tests
-   cd frontend && npm test
+   cd frontend && pnpm test
 
    # Backend tests (if implemented)
    cd backend && composer test
@@ -189,7 +189,7 @@ docker-compose down
 docker-compose build [service_name]
 
 # Execute commands in containers
-docker-compose exec frontend npm test
+docker-compose exec frontend pnpm test
 docker-compose exec backend php -v
 docker-compose exec postgres psql -U postgres -d expense_management
 ```
@@ -210,9 +210,9 @@ expense-management-dashboard/
 
 ```bash
 cd frontend
-npm test                # Run tests
-npm run test:coverage   # Run with coverage
-npm run test:ui         # Run with UI
+pnpm test                # Run tests
+pnpm run test:coverage   # Run with coverage
+pnpm run test:ui         # Run with UI
 ```
 
 ### API Testing

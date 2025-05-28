@@ -66,7 +66,7 @@ const DashboardPage: React.FC = () => {
                 <Grid item xs={ 12 } sm={ 6 } md={ 3 }>
                     <Paper sx={ { p: 3, textAlign: 'center' } }>
                         <Typography variant="h6" color="text.secondary" gutterBottom>
-                            Total Income asdasdasd
+                            Total Income
                         </Typography>
                         <Typography variant="h3" color="success.main">
                             ${ totalIncome?.toFixed( 2 ) }
