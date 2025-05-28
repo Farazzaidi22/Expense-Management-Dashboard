@@ -26,14 +26,9 @@ const DashboardPage: React.FC = () => {
         navigate( '/users/new' )
     }
 
-    console.log(users, "users in dashboard");
-
     const totalUsers = users?.length
     const totalIncome = users?.reduce( ( sum, user ) => sum + (user.totalIncome), 0 )
-    console.log(totalIncome, "totalIncome");
-
     const totalExpenses = users?.reduce( ( sum, user ) => sum + (user.totalExpense), 0 )
-    console.log(totalExpenses, "totalExpenses");
 
     if ( usersLoading && users?.length === 0 ) {
         return <Loading message="Loading dashboard..." />
