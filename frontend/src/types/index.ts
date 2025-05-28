@@ -1,4 +1,6 @@
 // frontend/src/types/index.ts
+
+// Frontend interfaces (camelCase - JavaScript convention)
 export interface User {
   id: number;
   name: string;
@@ -7,16 +9,6 @@ export interface User {
   totalExpense: number;
   createdAt: string;
   updatedAt: string;
-}
-
-export interface CreateUserRequest {
-  name: string;
-  email: string;
-}
-
-export interface UpdateUserRequest {
-  name?: string;
-  email?: string;
 }
 
 export interface Transaction {
@@ -29,6 +21,40 @@ export interface Transaction {
   date: string;
   createdAt: string;
   updatedAt: string;
+}
+
+// API Response interfaces (snake_case - matches backend)
+export interface ApiUser {
+  id: number;
+  name: string;
+  email: string;
+  total_income: string;
+  total_expense: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ApiTransaction {
+  id: number;
+  user_id: number;
+  type: TransactionType;
+  amount: string;
+  category: string;
+  description: string;
+  date: string;
+  created_at: string;
+  updated_at: string;
+}
+
+// Request interfaces
+export interface CreateUserRequest {
+  name: string;
+  email: string;
+}
+
+export interface UpdateUserRequest {
+  name?: string;
+  email?: string;
 }
 
 export interface CreateTransactionRequest {
@@ -47,6 +73,7 @@ export interface UpdateTransactionRequest {
   date?: string;
 }
 
+// Other types
 export type TransactionType = "income" | "expense";
 
 export interface ExpenseByCategory {
@@ -88,3 +115,6 @@ export interface UIState {
     severity: "success" | "error" | "warning" | "info";
   };
 }
+
+// Utility type for transforming API responses
+export type TransformFunction<TApi, TFrontend> = (apiData: TApi) => TFrontend;

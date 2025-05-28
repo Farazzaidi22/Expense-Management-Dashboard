@@ -1,4 +1,4 @@
-// frontend/src/store/slices/transactionSlice.ts (Fix error typing)
+// frontend/src/store/slices/transactionSlice.ts
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import {
   Transaction,
@@ -106,99 +106,99 @@ const transactionSlice = createSlice({
   name: "transactions",
   initialState,
   reducers: {
-    clearTransactions: (state: any) => {
+    clearTransactions: (state) => {
       state.transactions = [];
     },
-    clearError: (state: any) => {
+    clearError: (state) => {
       state.error = null;
     },
   },
   extraReducers: (builder) => {
     builder
       // Fetch user transactions
-      .addCase(fetchUserTransactions.pending, (state: any) => {
+      .addCase(fetchUserTransactions.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
       .addCase(
         fetchUserTransactions.fulfilled,
-        (state: any, action: PayloadAction<Transaction[]>) => {
+        (state, action: PayloadAction<Transaction[]>) => {
           state.loading = false;
           state.transactions = action.payload;
         }
       )
-      .addCase(fetchUserTransactions.rejected, (state: any, action: any) => {
+      .addCase(fetchUserTransactions.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as ApiError;
       })
       // Create transaction
-      .addCase(createTransaction.pending, (state: any) => {
+      .addCase(createTransaction.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
       .addCase(
         createTransaction.fulfilled,
-        (state: any, action: PayloadAction<Transaction>) => {
+        (state, action: PayloadAction<Transaction>) => {
           state.loading = false;
           state.transactions.push(action.payload);
         }
       )
-      .addCase(createTransaction.rejected, (state: any, action: any) => {
+      .addCase(createTransaction.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as ApiError;
       })
       // Update transaction
-      .addCase(updateTransaction.pending, (state: any) => {
+      .addCase(updateTransaction.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
       .addCase(
         updateTransaction.fulfilled,
-        (state: any, action: PayloadAction<Transaction>) => {
+        (state, action: PayloadAction<Transaction>) => {
           state.loading = false;
           const index = state.transactions.findIndex(
-            (transaction: Transaction) => transaction.id === action.payload.id
+            (transaction) => transaction.id === action.payload.id
           );
           if (index !== -1) {
             state.transactions[index] = action.payload;
           }
         }
       )
-      .addCase(updateTransaction.rejected, (state: any, action: any) => {
+      .addCase(updateTransaction.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as ApiError;
       })
       // Delete transaction
-      .addCase(deleteTransaction.pending, (state: any) => {
+      .addCase(deleteTransaction.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
       .addCase(
         deleteTransaction.fulfilled,
-        (state: any, action: PayloadAction<number>) => {
+        (state, action: PayloadAction<number>) => {
           state.loading = false;
           state.transactions = state.transactions.filter(
-            (transaction: Transaction) => transaction.id !== action.payload
+            (transaction) => transaction.id !== action.payload
           );
         }
       )
-      .addCase(deleteTransaction.rejected, (state: any, action: any) => {
+      .addCase(deleteTransaction.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as ApiError;
       })
       // Fetch expenses by category
-      .addCase(fetchExpensesByCategory.pending, (state: any) => {
+      .addCase(fetchExpensesByCategory.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
       .addCase(
         fetchExpensesByCategory.fulfilled,
-        (state: any, action: PayloadAction<ExpenseByCategory[]>) => {
+        (state, action: PayloadAction<ExpenseByCategory[]>) => {
           state.loading = false;
           state.expensesByCategory = action.payload;
         }
       )
-      .addCase(fetchExpensesByCategory.rejected, (state: any, action: any) => {
+      .addCase(fetchExpensesByCategory.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as ApiError;
       });

@@ -80,6 +80,7 @@ const UserTransactions: React.FC = () => {
     // Calculate transaction statistics
     const incomeTransactions = transactions.filter( t => t.type === 'income' )
     const expenseTransactions = transactions.filter( t => t.type === 'expense' )
+    console.log(incomeTransactions, "incomeTransactions");
     const totalIncome = incomeTransactions.reduce( ( sum, t ) => sum + t.amount, 0 )
     const totalExpenses = expenseTransactions.reduce( ( sum, t ) => sum + t.amount, 0 )
 
