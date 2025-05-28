@@ -1,5 +1,5 @@
--- backend/database/seeders/transactions_seeder.sql
--- Sample transactions data
+-- backend/database/seeders/002_transactions_seeder.sql
+-- Sample transactions data (runs SECOND, after users exist)
 INSERT INTO transactions (user_id, type, amount, category, description, date, created_at, updated_at) VALUES
     -- John Doe's transactions (user_id: 1)
     (1, 'income', 5000.00, 'income', 'Monthly salary', '2025-01-01', '2025-01-01 10:30:00', '2025-01-01 10:30:00'),
