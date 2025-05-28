@@ -49,8 +49,6 @@ expense-management-dashboard/
 │   │   │   │   ├── userSlice.ts
 │   │   │   │   ├── transactionSlice.ts
 │   │   │   │   └── uiSlice.ts
-│   │   │   └── middleware/
-│   │   │       └── api.ts
 │   │   ├── types/
 │   │   │   ├── index.ts
 │   │   │   ├── user.ts
@@ -60,12 +58,14 @@ expense-management-dashboard/
 │   │   │   ├── userService.ts
 │   │   │   └── transactionService.ts
 │   │   ├── utils/
-│   │   │   ├── validation.ts
-│   │   │   ├── formatters.ts
-│   │   │   └── constants.ts
+│   │   │   ├── constants.ts
+│   │   │   ├── dateUtils.ts
+│   │   │   └── formatters.ts
+│   │   │   ├── theme.ts
+│   │   │   ├── transforms.ts
+│   │   │   └── validation.ts
 │   │   ├── hooks/
 │   │   │   ├── useApi.ts
-│   │   │   └── useDebounce.ts
 │   │   └── __tests__/
 │   │       ├── components/
 │   │       ├── services/
